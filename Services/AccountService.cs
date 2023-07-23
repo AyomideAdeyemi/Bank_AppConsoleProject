@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bank_AppConsoleProject.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,14 @@ namespace Bank_AppConsoleProject.Services
 {
     public class AccountService
     {
+        public List<Account> Accounts;
+        public AccountService(List<Account> accounts) 
+        { 
+          Accounts = accounts;
+        }
+        public Account CreateNewAccount() 
+        { 
+
+        }
     }
 }
