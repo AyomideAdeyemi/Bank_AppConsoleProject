@@ -22,4 +22,6 @@ namespace Bank_AppConsoleProject.Entities
         public IList<Account> Accounts { get; set; }
 
     }
+    
+
 }
