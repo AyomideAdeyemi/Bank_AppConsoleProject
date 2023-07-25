@@ -19,6 +19,7 @@ namespace Bank_AppConsoleProject.Services
 
         public User CreateNewUser(List<User> users)
         {
+            Console.WriteLine("Welcome to Apex Bank ");
             Console.WriteLine("Enter Your FirstName:");
             string firstName = Console.ReadLine().Trim();
 
@@ -30,7 +31,7 @@ namespace Bank_AppConsoleProject.Services
             string Email = Console.ReadLine().Trim();
             Console.WriteLine("Enter Your Password:");
             string Password = Console.ReadLine().Trim();
-
+            Console.WriteLine("your account created successfully");
             User user = new User();
             user.FirstName = firstName;
             user.LastName = lastName;
@@ -40,7 +41,7 @@ namespace Bank_AppConsoleProject.Services
             Users.Add(user);
             return user;
 
-             
+
 
 
 

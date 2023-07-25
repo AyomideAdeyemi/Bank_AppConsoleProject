@@ -8,9 +8,8 @@ namespace Bank_AppConsoleProject.Entities
 {
     public enum AccountType
     {
-        Savings,
-        Checking,
-        Investment
+        Savings = 1,
+        Current,
     }
 }
 
