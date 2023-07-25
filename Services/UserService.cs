@@ -19,7 +19,7 @@ namespace Bank_AppConsoleProject.Services
 
         public User CreateNewUser(List<User> users)
         {
-            Console.WriteLine("Welcome to Apex Bank ");
+            Console.WriteLine("Welcome to pex Bank ");
             Console.WriteLine("Enter Your FirstName:");
             string firstName = Console.ReadLine().Trim();
 

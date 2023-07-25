@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -57,44 +58,50 @@ namespace Bank_AppConsoleProject.Services
             
         }
 
-        public string WithDrawal(string accountNumber)
+        public string WithDrawal()
         {
-            Account account = Accounts.Where(x => x.AccountNumber == accountNumber).FirstOrDefault();
+            //Account account = Accounts.Where(x => x.AccountNumber == accountNumber).FirstOrDefault();
+
             Console.WriteLine("Enter the Amount to withdraw");
             bool WithdrawAmount = decimal.TryParse(Console.ReadLine(), out decimal amount);
-            if (WithdrawAmount)
-            {
-                account.Balance += amount;
-                if (account.Balance - amount < 1000)
-                {
-                    Console.WriteLine("Sorry, you have insufficient balance");
-                }
-                else
-                {
-                    Console.WriteLine("Enter Password");
-                    string passWord = Console.ReadLine();
-                    if (passWord == account.Password)
-                    {
-                        Console.WriteLine($"Congratulations you have successfully withdraw {amount} naire from your account\nNew balance is\n{account.Balance += amount}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Wrong Password Entered");
-
-                    }
-                }
-
-            }
-            else
-            {
-                Console.WriteLine("Invalid amount entered");
-            }
-
+            Console.WriteLine("Enter Password");
+            string passWord = Console.ReadLine();
+            Console.WriteLine($"Congratulations you have successfully withdraw {amount} naire from your account");
             return zero;
-        }
-        public string TransferFunds(string accountNumber)
+        }   //            }
+            //    if (WithdrawAmount)
+            //    {
+            //        account.Balance += amount;
+            //        if (account.Balance - amount < 1000)
+            //        {
+            //            Console.WriteLine("Sorry, you have insufficient balance");
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Enter Password");
+            //            string passWord = Console.ReadLine();
+            //            if (passWord == account.Password)
+            //            {
+            //                Console.WriteLine($"Congratulations you have successfully withdraw {amount} naire from your account\nNew balance is\n{account.Balance += amount}");
+            //            }
+            //            else
+            //            {
+            //                Console.WriteLine("Wrong Password Entered");
+
+            //            }
+            //        }
+
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Invalid amount entered");
+            //    }
+
+            //    return zero;
+            //}
+            public void TransferFunds()
         {
-            Account account = Accounts.Where(x => x.AccountNumber == accountNumber).FirstOrDefault();
+           // Account account = Accounts.Where(x => x.AccountNumber == accountNumber).FirstOrDefault();
             Console.WriteLine("Enter the receiver account number");
             string receiverAccountNum = Console.ReadLine();
             Console.WriteLine("enter description");
@@ -103,31 +110,35 @@ namespace Bank_AppConsoleProject.Services
             string[] receiverName = Console.ReadLine().Trim().Split(' ');
             Console.WriteLine("Enter the amount to transfer");
             bool transferAmount = decimal.TryParse(Console.ReadLine(), out decimal amount);
-            decimal MinimumBal = 1000;
-            if (transferAmount)
-            {
-                if (amount < 50)
-                {
-                    Console.WriteLine("Cannot transfer less tha 50 naira");
-                }
-                else if (account.Balance - amount < MinimumBal)
-                {
-                    Console.WriteLine("insufficient funds");
-                }
-                else
-                {
-                    Console.WriteLine("Enter Password");
-                    string passWord = Console.ReadLine();
-                    if (account.Password == passWord)
-                    {
-                        Console.WriteLine($"Congratulation you have successfully sent {amount} to {receiverName}");
-                    }
-                }
-            }
-            return zero;
+            Console.WriteLine("Enter Password");
+            string passWord = Console.ReadLine();
+            
+            Console.WriteLine($"Congratulation you have successfully sent {amount} to {receiverName}");
+            //decimal MinimumBal = 1000;
+            //if (transferAmount)
+            //{
+            //    if (amount < 50)
+            //    {
+            //        Console.WriteLine("Cannot transfer less tha 50 naira");
+            //    }
+            //    //else if (account.Balance - amount < MinimumBal)
+            //    //{
+            //    //    Console.WriteLine("insufficient funds");
+            //    //}
+            //    else
+            //    {
+            //        Console.WriteLine("Enter Password");
+            //        string passWord = Console.ReadLine();
+            //        //if (account.Password == passWord)
+            //        //{
+            //        //    Console.WriteLine($"Congratulation you have successfully sent {amount} to {receiverName}");
+            //        //}
+            //    }
+            //}
+            //return zero;
 
         }
 
-        
+
     }
 }
